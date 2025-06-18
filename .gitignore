@@ -1,0 +1,14 @@
+# Ignore Python environment and generated files
+__pycache__/
+.env
+image_db/
+images/
+*.pyc
+
+# Node modules
+frontend/node_modules
+frontend/.env
+
+# Mac/Linux/Windows
+.DS_Store
+Thumbs.db
