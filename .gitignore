@@ -1,8 +1,6 @@
 # Ignore Python environment and generated files
 __pycache__/
 .env
-image_db/
-images/
 *.pyc
 
 # Node modules
