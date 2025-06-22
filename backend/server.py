@@ -9,7 +9,7 @@ import requests
 from dotenv import load_dotenv
 
 load_dotenv()
-
+port = int(os.environ.get("PORT", 10000))
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 
@@ -123,8 +123,7 @@ def handle_image_generation():
     resp.headers.add("Access-Control-Allow-Origin", "*")
     return resp
 
-
 if __name__ == '__main__':
-    app.run(port=5001, debug=True)
+    app.run(host="0.0.0.0", port=port)
 
 
