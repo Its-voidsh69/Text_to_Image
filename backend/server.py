@@ -23,7 +23,7 @@ collection = chroma_client.get_or_create_collection(
     metadata={"hnsw:space": "cosine"}
 )
 
-embed_model = SentenceTransformer('all-MiniLM-L6-v2')
+embed_model = SentenceTransformer('paraphrase-MiniLM-L3-v2')  # Lighter & faster
 
 # interpret this as cosine‐similarity threshold, not distance
 SIMILARITY_THRESHOLD = 0.80
@@ -45,6 +45,7 @@ def serve_image(filename):
 
 @app.route('/api/generate-image', methods=['POST', 'OPTIONS'])
 def handle_image_generation():
+    embed_model = SentenceTransformer('paraphrase-MiniLM-L3-v2')
     if request.method == 'OPTIONS':
         return _build_cors_preflight_response()
     
